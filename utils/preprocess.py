@@ -38,8 +38,8 @@ class DataLoader:
     
     
     def __init__(self, target_shape, seed = None):
-        self.mri_datapath = '/local/scratch/ses88/ADNI_volumes_customtemplate_float32'
-        self.xls_datapath = '/local/scratch/ses88'
+        self.mri_datapath = '../../ses88/ADNI_volumes_defaulttemplate'
+        self.xls_datapath = '/../../ses88'
         self.target_shape = target_shape
         self.seed = seed
   
@@ -59,7 +59,7 @@ class DataLoader:
         keys = ['JD', 'mri']
         healthy_dict, ad_dict, smci_dict, pmci_dict = [{key: [] for key in keys} for i in range(4)]
         for _file in file_names:
-          if _file[-2:] == 'gz':
+          if _file[-3:] == 'nii':
             if 'stableNL' in _file:
                 if 'JD' in _file:
                     healthy_dict['JD'].append(_file)
